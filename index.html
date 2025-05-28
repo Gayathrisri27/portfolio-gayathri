@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gayathrisri G | Vintage Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Garamond&family=Courier+New&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Courier New', monospace;
+      background-color: #f8f4e3;
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABlSURBVGhD7c6xDYAwAARBu4v9twV2Qb1gB+xgF+QvF2ADGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgY5s4DA1J2FjUAAAAASUVORK5CYII=') repeat;
+      color: #2f1e0f;
+      line-height: 1.6;
+      font-size: 16px;
+      overflow-x: hidden;
+      position: relative;
+      margin: 0;
+      text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(242, 225, 176, 0.5);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    header {
+      background: linear-gradient(to right, #e0cb8f, #d6bc7e);
+      padding: 3rem 2rem;
+      text-align: center;
+      border-bottom: 4px double #7a5c36;
+      position: relative;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      font-family: 'Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      color: #2f1e0f;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      animation: typewriter 2s steps(40, end) forwards;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    header p {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: #5a4632;
+      font-style: italic;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 2.5s forwards;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+      background: linear-gradient(to right, #d6bc7e, #e0cb8f);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-top: 2px dashed #7a5c36;
+      border-bottom: 2px dashed #7a5c36;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    nav a {
+      color: #2f1e0f;
+      text-decoration: none;
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+      transition: all 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      color: #7a5c36;
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: clamp(2rem, 5vw, 4rem) clamp(4%, 8vw, 8%);
+      max-width: 1200px;
+      margin: 0 auto 2rem;
+      border-bottom: 1px dashed #7a5c36;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      position: relative;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      font-family: 'Garamond', serif;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      color: #2f1e0f;
+      border-bottom: 2px solid #7a5c36;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      animation: typewriter 1.5s steps(30, end) forwards;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    p, ul li {
+      opacity: 0;
+      animation: fadeInUp 0.8s ease-out 0.5s forwards;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    ul li {
+      position: relative;
+      padding: 0.5rem 1rem 0.5rem 2rem;
+      margin-bottom: 0.5rem;
+      background: rgba(224, 203, 143, 0.3);
+      border-left: 3px solid #7a5c36;
+    }
+
+    ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0.5rem;
+      color: #7a5c36;
+      font-weight: bold;
+    }
+
+    .about-container, .experience-container {
+      display: flex;
+      align-items: flex-start;
+      gap: clamp(1rem, 3vw, 1.5rem);
+      flex-wrap: wrap;
+    }
+
+    .about-content, .experience-content {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .about-photo img, .experience-photo img {
+      width: clamp(80px, 15vw, 150px);
+      height: clamp(80px, 15vw, 150px);
+      border: 3px solid #7a5c36;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .about-photo img:hover, .experience-photo img:hover {
+      transform: scale(1.05);
+    }
+
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: clamp(1rem, 2vw, 1.5rem);
+      margin-bottom: 2rem;
+    }
+
+    .skill-card {
+      perspective: 1000px;
+      height: clamp(90px, 15vw, 140px);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .skill-card:hover {
+      background: rgba(122, 92, 54, 0.1);
+    }
+
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(122, 92, 54, 0.2);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 0.5rem;
+      pointer-events: none;
+    }
+
+    .skill-card:hover::before {
+      opacity: 1;
+    }
+
+    .skill-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      border-radius: 8px;
+      border: 2px solid #7a5c36;
+      background: linear-gradient(135deg, #f2e1b0, #e0cb8f);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .skill-card:hover .skill-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .skill-card-front,
+    .skill-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      padding: 1rem;
+      font-family: 'Courier New', monospace;
+      font-size: clamp(0.9rem, 1.5vw, 1rem);
+      font-weight: bold;
+    }
+
+    .skill-card-front {
+      background: linear-gradient(135deg, #f2e1b0, #e0cb8f);
+      color: #2f1e0f;
+    }
+
+    .skill-card-back {
+      background: linear-gradient(135deg, #e0cb8f, #d6bc7e);
+      color: #2f1e0f;
+      transform: rotateY(180deg);
+      border: 2px solid #7a5c36;
+    }
+
+    .languages {
+      margin-top: 1.5rem;
+    }
+
+    .languages span {
+      display: inline-block;
+      background: #e0cb8f;
+      color: #2f1e0f;
+      padding: 0.4rem 1rem;
+      margin: 0.3rem;
+      border: 1px solid #7a5c36;
+      border-radius: 0.5rem;
+      font-size: 0.9rem;
+      transition: background 0.3s ease;
+    }
+
+    .languages span:hover {
+      background: #d6bc7e;
+    }
+
+    ul li {
+      margin-bottom: 0.6rem;
+      font-size: 1rem;
+    }
+
+    a {
+      color: #2a5e8c;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    a:hover {
+      color: #4682b4;
+    }
+
+    .project-links a {
+      color: #2a5e8c;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.3rem 0.8rem;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      background: rgba(42, 94, 140, 0.1);
+    }
+
+    .project-links a:hover {
+      background: rgba(42, 94, 140, 0.2);
+      color: #4682b4;
+    }
+
+    .project-card, .certification-card {
+      background: linear-gradient(135deg, #f2e1b0, #e0cb8f);
+      border: 2px solid #7a5c36;
+      border-radius: 12px;
+      padding: clamp(1.2rem, 3vw, 1.8rem);
+      margin-bottom: 1.5rem;
+      position: relative;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-card:hover, .certification-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-card::before, .certification-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(122, 92, 54, 0.2);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 0.5rem;
+      pointer-events: none;
+    }
+
+    .project-card:hover::before, .certification-card:hover::before {
+      opacity: 1;
+    }
+
+    .resume-container {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .resume-button {
+      display: inline-block;
+      position: relative;
+      padding: 0.8rem 1.5rem;
+      background: #7a5c36;
+      color: #f2e1b0;
+      border-radius: 0.5rem;
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .resume-button:hover {
+      background: #5a4632;
+    }
+
+    .resume-button::after {
+      content: '📜';
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      font-size: 1.5rem;
+      transform: rotate(15deg);
+    }
+
+    .resume-button .tooltip {
+      visibility: hidden;
+      background: #d6bc7e;
+      color: #2f1e0f;
+      text-align: center;
+      padding: 0.5rem;
+      border-radius: 0.3rem;
+      position: absolute;
+      z-index: 1;
+      bottom: 120%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.9rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .resume-button:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: clamp(1rem, 2vw, 1.5rem);
+      margin-top: 2rem;
+    }
+
+    .contact-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(0.8rem, 1.5vw, 1rem) clamp(1.2rem, 2vw, 1.8rem);
+      background: linear-gradient(135deg, #2a5e8c, #4682b4);
+      color: #ffffff;
+      border-radius: 12px;
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 12px rgba(42, 94, 140, 0.2);
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+      );
+      transition: 0.5s;
+    }
+
+    .contact-button:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 6px 20px rgba(42, 94, 140, 0.3);
+      background: linear-gradient(135deg, #4682b4, #2a5e8c);
+    }
+
+    .contact-button:hover::before {
+      left: 100%;
+    }
+
+    .contact-button:active {
+      transform: translateY(-1px) scale(0.98);
+    }
+
+    .contact-button i {
+      margin-right: 8px;
+      font-size: 1.2em;
+    }
+
+    footer {
+      background: linear-gradient(to right, #e0cb8f, #d6bc7e);
+      color: #2f1e0f;
+      text-align: center;
+      padding: clamp(1.5rem, 3vw, 2rem);
+      font-size: clamp(0.9rem, 1.5vw, 1rem);
+      font-style: italic;
+      border-top: 2px dashed #7a5c36;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    @keyframes typewriter {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .education-card {
+      background: linear-gradient(135deg, #f2e1b0, #e0cb8f);
+      border: 2px solid #7a5c36;
+      border-radius: 12px;
+      padding: clamp(1.2rem, 3vw, 1.8rem);
+      margin-bottom: 1.5rem;
+      position: relative;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .education-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .education-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(122, 92, 54, 0.2);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 0.5rem;
+      pointer-events: none;
+    }
+
+    .education-card:hover::before {
+      opacity: 1;
+    }
+
+    .education-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .education-icon {
+      font-size: 2rem;
+      color: #7a5c36;
+    }
+
+    .education-title {
+      font-family: 'Garamond', serif;
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      color: #2f1e0f;
+      margin: 0;
+    }
+
+    .education-details {
+      margin-left: 3rem;
+    }
+
+    .education-degree {
+      font-weight: bold;
+      color: #7a5c36;
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .education-info {
+      color: #2f1e0f;
+      font-size: clamp(0.9rem, 1.2vw, 1rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .education-score {
+      display: inline-block;
+      background: rgba(122, 92, 54, 0.1);
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      font-weight: bold;
+      color: #7a5c36;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Gayathrisri G</h1>
+    <p>iOS Developer | Cybersecurity Specialist | Machine Learning Enthusiast</p>
+  </header>
+
+  <nav role="navigation">
+    <a href="#about" aria-label="About Section">About</a>
+    <a href="#skills" aria-label="Skills Section">Skills</a>
+    <a href="#education" aria-label="Education Section">Education</a>
+    <a href="#experience" aria-label="Experience Section">Experience</a>
+    <a href="#projects" aria-label="Projects Section">Projects</a>
+    <a href="#certifications" aria-label="Certifications Section">Certifications</a>
+    <a href="#contact" aria-label="Contact Section">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about-container">
+      <div class="about-content">
+        <p>Dynamic and detail-oriented Software Developer with expertise in iOS development, cybersecurity, and machine learning. Committed to delivering secure, scalable solutions and fostering effective team collaboration to drive innovation.</p>
+      </div>
+      <div class="about-photo">
+        <img src="images/1.png.jpeg" alt="Gayathrisri G's About Photo" />
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <div class="skills-container">
+      <div class="skill-card">
+        <div class="skill-card-inner">
+          <div class="skill-card-front">Python</div>
+          <div class="skill-card-back">90% Proficient</div>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-inner">
+          <div class="skill-card-front">SwiftUI</div>
+          <div class="skill-card-back">90% Proficient</div>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-inner">
+          <div class="skill-card-front">C</div>
+          <div class="skill-card-back">75% Proficient</div>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-inner">
+          <div class="skill-card-front">Xcode</div>
+          <div class="skill-card-back">75% Proficient</div>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-inner">
+          <div class="skill-card-front">Figma</div>
+          <div class="skill-card-back">85% Proficient</div>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-inner">
+          <div class="skill-card-front">Machine Learning</div>
+          <div class="skill-card-back">75% Proficient</div>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-inner">
+          <div class="skill-card-front">Git</div>
+          <div class="skill-card-back">75% Proficient</div>
+        </div>
+      </div>
+    </div>
+    <div class="languages">
+      <strong>Languages:</strong>
+      <span>Tamil</span><span>English</span><span>Hindi</span><span>Telugu</span><span>German</span>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="education-card">
+      <div class="education-header">
+        <span class="education-icon">🎓</span>
+        <h3 class="education-title">SRM Institute of Science and Technology</h3>
+      </div>
+      <div class="education-details">
+        <div class="education-degree">B.Tech in Computer Science with Cybersecurity Specialization</div>
+        <div class="education-info">2022 – Present</div>
+        <div class="education-score">CGPA: 8.8</div>
+      </div>
+    </div>
+
+    <div class="education-card">
+      <div class="education-header">
+        <span class="education-icon">🏫</span>
+        <h3 class="education-title">NSN Memorial Senior Secondary School</h3>
+      </div>
+      <div class="education-details">
+        <div class="education-degree">Secondary Education</div>
+        <div class="education-info">SSC: 91.6%</div>
+        <div class="education-info">AISSCE: 73.6%</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Professional Experience</h2>
+    <div class="experience-container">
+      <div class="experience-content">
+        <p><strong>iOS App Developer Intern</strong>, Infosys Limited, Mysore (Apr–May 2025)</p>
+        <ul>
+          <li>Developed a Hospital Management System iOS application using SwiftUI, Firebase, and Figma.</li>
+          <li>Managed agile workflows via Jira, focusing on consultation and record management features.</li>
+          <li>Implemented real-time data synchronization and responsive UI design.</li>
+        </ul>
+      </div>
+      <div class="experience-photo">
+        <img src="images/2.png.jpeg" alt="Gayathrisri G's Experience Photo" />
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-card">
+      <p><strong>Zedit – Video Editing iOS App</strong><br>
+        <span class="project-links">
+          <a href="https://github.com/Zedit-iOS" target="_blank" aria-label="Zedit GitHub Repository">GitHub</a> |
+          <a href="https://apps.apple.com/in/app/zedit-longer-to-shorter-clips/id6743313076" target="_blank" aria-label="Zedit App Store">App Store</a>
+        </span>
+      </p>
+      <ul>
+        <li>Developed an AI-powered iOS app using SwiftUI, CoreImage, Speech, and LLaMA.cpp for seamless video editing.</li>
+      </ul>
+    </div>
+    <div class="project-card">
+      <p><strong>Intelligent Disease Diagnosis using ANN</strong><br>
+        <span class="project-links">
+          <a href="https://tinyurl.com/ANN-PROJECT" target="_blank" aria-label="ANN Project Link">Project Link</a>
+        </span>
+      </p>
+      <ul>
+        <li>Designed a neural network with TensorFlow/Keras for accurate disease prediction.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <div class="certification-card">
+      <ul>
+        <li>Infosys Certified Frontend Developer</li>
+        <li>TCS iON Cybersecurity for Beginners</li>
+        <li>Meta Principles of UI/UX Design</li>
+        <li>JP Morgan Chase & Co Quantitative Research</li>
+        <li>Google Prompt Design in Vertex AI</li>
+        <li>Cisco Certified Ethical Hacker</li>
+        <li>Cisco Networking Basics</li>
+        <li>Fortinet Certified Associate in Cybersecurity</li>
+      </ul>
+      <div class="resume-container">
+        <a href="Gayathrisri_G_Resume.pdf" download class="resume-button" aria-label="Download Resume">
+          Download Resume
+          <span class="tooltip">Download My Resume</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Gayathri</h2>
+    <div class="contact-buttons">
+      <a href="mailto:gayathrisrii271204@gmail.com" class="contact-button" aria-label="Contact Gayathrisri via Email">
+        <i>✉️</i>Contact Gayathri via Email
+      </a>
+      <a href="https://wa.me/918754577601?text=Hello%20Gayathrisri,%20I%20would%20like%20to%20connect!" target="_blank" class="contact-button" aria-label="Message Gayathrisri on WhatsApp">
+        <i>💬</i>Message on WhatsApp
+      </a>
+      <a href="https://linkedin.com/in/gayathrisri-g" target="_blank" class="contact-button" aria-label="Gayathrisri's LinkedIn Profile">
+        <i>🔗</i>Connect on LinkedIn
+      </a>
+      <a href="https://github.com/Gayathrisri27" target="_blank" class="contact-button" aria-label="Gayathrisri's GitHub Profile">
+        <i>👩‍💻</i>View GitHub
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Gayathrisri G | A Vintage Chronicle 🖋️
+  </footer>
+
+  <script>
+    // Scroll animation for sections
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    // Navigation highlighting
+    const navLinks = document.querySelectorAll('nav a');
+
+    // Add click event listeners to navigation links
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        
+        // Scroll to the target section
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Update active state of navigation links
+        navLinks.forEach(navLink => {
+          if (navLink === link) {
+            navLink.style.background = 'rgba(122, 92, 54, 0.2)';
+            navLink.style.color = '#7a5c36';
+          } else {
+            navLink.style.background = '';
+            navLink.style.color = '#2f1e0f';
+          }
+        });
+      });
+    });
+
+    // Add scroll event listener to update active link based on visible section
+    window.addEventListener('scroll', () => {
+      const scrollPosition = window.scrollY;
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionBottom = sectionTop + section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+          navLinks.forEach(link => {
+            if (link.getAttribute('href') === `#${sectionId}`) {
+              link.style.background = 'rgba(122, 92, 54, 0.2)';
+              link.style.color = '#7a5c36';
+            } else {
+              link.style.background = '';
+              link.style.color = '#2f1e0f';
+            }
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
