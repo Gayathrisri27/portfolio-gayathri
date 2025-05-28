@@ -350,61 +350,6 @@
       opacity: 1;
     }
 
-    .resume-container {
-      text-align: center;
-      margin-top: 1.5rem;
-    }
-
-    .resume-button {
-      display: inline-block;
-      position: relative;
-      padding: 0.8rem 1.5rem;
-      background: #7a5c36;
-      color: #f2e1b0;
-      border-radius: 0.5rem;
-      font-family: 'Courier New', monospace;
-      font-weight: bold;
-      font-size: 1rem;
-      text-decoration: none;
-      transition: background 0.3s ease;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    }
-
-    .resume-button:hover {
-      background: #5a4632;
-    }
-
-    .resume-button::after {
-      content: '📜';
-      position: absolute;
-      top: -10px;
-      right: -10px;
-      font-size: 1.5rem;
-      transform: rotate(15deg);
-    }
-
-    .resume-button .tooltip {
-      visibility: hidden;
-      background: #d6bc7e;
-      color: #2f1e0f;
-      text-align: center;
-      padding: 0.5rem;
-      border-radius: 0.3rem;
-      position: absolute;
-      z-index: 1;
-      bottom: 120%;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0.9rem;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .resume-button:hover .tooltip {
-      visibility: visible;
-      opacity: 1;
-    }
-
     .contact-buttons {
       display: flex;
       flex-wrap: wrap;
@@ -576,34 +521,46 @@
     .header-resume-button {
       display: inline-block;
       position: relative;
-      padding: 1rem 2rem;
+      padding: 1rem 2.5rem;
       background: linear-gradient(135deg, #7a5c36, #e0cb8f);
       color: #2f1e0f;
       border-radius: 1rem;
-      font-family: 'Courier New', monospace;
+      font-family: 'Garamond', serif;
       font-weight: bold;
-      font-size: 1.15rem;
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
       text-decoration: none;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 4px 16px rgba(122, 92, 54, 0.15);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 6px 20px rgba(122, 92, 54, 0.2);
       border: 2px solid #7a5c36;
       margin-bottom: 0.5rem;
       z-index: 2;
       overflow: hidden;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
     .header-resume-button:hover {
       background: linear-gradient(135deg, #e0cb8f, #7a5c36);
-      color: #7a5c36;
-      box-shadow: 0 8px 32px rgba(122, 92, 54, 0.25);
-      transform: translateY(-2px) scale(1.03);
+      color: #2f1e0f;
+      box-shadow: 0 10px 30px rgba(122, 92, 54, 0.3);
+      transform: translateY(-3px) scale(1.05);
     }
-    .header-resume-button::after {
-      content: '📄';
+    .header-resume-button::before {
+      content: '';
       position: absolute;
-      right: 1.2rem;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 1.3rem;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+      );
+      transition: 0.5s;
+    }
+    .header-resume-button:hover::before {
+      left: 100%;
     }
   </style>
 </head>
@@ -774,12 +731,6 @@
         <li>Cisco Networking Basics</li>
         <li>Fortinet Certified Associate in Cybersecurity</li>
       </ul>
-      <div class="resume-container">
-        <a href="Gayathrisri.G-RESUME.pdf" download class="resume-button" aria-label="Download Resume">
-          Download Resume
-          <span class="tooltip">Download My Resume</span>
-        </a>
-      </div>
     </div>
   </section>
 
